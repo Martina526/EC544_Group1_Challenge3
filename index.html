@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<!-- 1.0 meta -->
+
+	<meta charset="utf-8">
+	<meta http-equiv ="refresh" content="5">
+	<!-- 2.0 title -->
+	<title>EC 544 - Challenge 3 Group 1 </title>
+	<!-- 3.0 CSS IMPORT -->
+	<!-- CSS IMPORT FOR PLUGIN -->
+	<link href="assets/bootstrap.min.css" rel="stylesheet">
+	<link href="assets/js/wow/css/libs/animate.css" rel="stylesheet">
+	<link href="assets/js/wordsrotator/jquery.wordrotator.min.css" rel="stylesheet">
+	<!-- CSS IMPORT FOR FONT -->
+
+	<link href='https://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+	<link href='assets/fonts/font-awesome/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+	<!-- CSS IMPORT FOR MAIN STYLE -->
+	<link href="assets/css/style.css" rel="stylesheet">
+	<!-- support HTML5 elements and media queries for IE9 -->
+
+	<!--[if lt IE 9]>
+
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+    <![endif]-->
+
+	<!-- 4.0 FAVICON -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io();
+</script>
+<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+
+
+var socket = io();
+
+$(document).ready(function(){
+
+			socket.emit('test',"T");
+
+});
+
+
+
+
+
+
+
+socket.on('chat message2', function(msg){
+
+	var str = msg;
+
+	//alert(msg);
+
+	var status =msg.split('');
+
+	//alert(status[3]);
+
+	//var color;
+
+	var property = document.getElementById("blue"),
+
+			property1 = document.getElementById("red"),
+
+			property2 = document.getElementById("green"),
+
+			property3 = document.getElementById("yellow");
+
+	if(status[2]==1)
+
+	{
+
+
+
+				property.style.backgroundColor = '#0e99e9';
+
+
+
+				//alert("blue")
+
+	}
+
+	else {
+
+		property.style.backgroundColor = "white";
+
+	}
+
+	if(status[4]==1)
+
+	{
+
+
+
+				property1.style.backgroundColor = '#eb4c5e';
+
+	}
+
+	else {
+
+		property1.style.backgroundColor = "white";
+
+	}
+
+	if(status[6]==1)
+
+	{
+
+
+
+				property2.style.backgroundColor = '#21d97a';
+
+	}
+
+	else {
+
+		property2.style.backgroundColor = "white";
+
+	}
+
+	if(status[8]==1)
+
+	{
+
+
+
+				property3.style.backgroundColor = '#f3ee50';
+
+	}
+
+	else {
+
+		property3.style.backgroundColor = "white";
+
+	}
+    //if(status[0]==0)
+    //{
+	    //alert(status)
+	    //location.replace("http://ec544group1.hopto.org:3000/index")
+	//}
+	});
+
+
+function blue(btn,color) {
+ 	var socket = io();
+  var property=document.getElementById(btn);
+	if (property.style.backgroundColor == 'white') {
+		property.style.backgroundColor = color;
+		if(color == '#0e99e9')
+		socket.emit('chat message1', "B1");
+		} else {
+		property.style.backgroundColor = "white";
+		socket.emit('chat message1', "B0");
+	}
+}
+
+function red(btn,color) {
+ 	var socket = io();
+  var property=document.getElementById(btn);
+	if (property.style.backgroundColor == 'white') {
+		property.style.backgroundColor = color;
+		if(color == '#eb4c5e')
+		socket.emit('chat message1', "R1");
+		} else {
+		property.style.backgroundColor = "white";
+		socket.emit('chat message1', "R0");
+	}
+}
+
+function green(btn,color) {
+ 	var socket = io();
+	var property=document.getElementById(btn);
+	if (property.style.backgroundColor == 'white') {
+   		property.style.backgroundColor = color;
+		if(color == '#21d97a')
+		socket.emit('chat message1', "G1");
+		} else {
+		property.style.backgroundColor = "white";
+		socket.emit('chat message1', "G0");
+	}
+}
+
+function yellow(btn,color) {
+ 		var socket = io();
+    var property=document.getElementById(btn);
+		if (property.style.backgroundColor == 'white') {
+				property.style.backgroundColor = color;
+		if(color == '#f3ee50')
+		socket.emit('chat message1', "Y1");
+		} else {
+		property.style.backgroundColor = "white";
+		socket.emit('chat message1', "Y0");
+	}
+}
+
+
+
+
+
+// if (  document.getElementById("green").style.backgroundColor == "#eaf5ed") {
+
+//   document.getElementById("green").style.backgroundColor=color;
+
+// }else {
+
+//   document.getElementById("green").style.backgroundColor="#eaf5ed";
+
+// }
+
+//
+
+//   $('#red').click(function() {
+
+//     //Now just reference this button and change CSS
+
+//     if () {
+
+//         $(this).css('background-color','#f47121');
+
+//     }
+
+//     $(this).css('background-color','red');
+
+// });
+</script>
+<style>
+
+.center {
+	padding: 70px 0;
+	border: 3px solid green;
+	text-align: center;
+}
+
+button#green {
+	display: block;
+	text-decoration: none;
+	font-size: 18px;
+	border: 2px solid gray;
+
+	border-radius: 100px;
+
+	width: 100px;
+
+	height: 100px;
+
+	text-align: center;
+
+	line-height: 100px;
+
+	background-color:white
+
+}
+
+button#yellow {
+
+	display: block;
+
+	text-decoration: none;
+
+	font-size: 18px;
+
+	border: 2px solid gray;
+
+	border-radius: 100px;
+
+	width: 100px;
+
+	height: 100px;
+
+	text-align: center;
+
+	line-height: 100px;
+
+	background-color: white
+
+}
+
+
+
+button#red {
+
+	display: block;
+
+	text-decoration: none;
+
+	font-size: 18px;
+
+	border: 2px solid gray;
+
+	border-radius: 100px;
+
+	width: 100px;
+
+	height: 100px;
+
+	text-align: center;
+
+	line-height: 100px;
+
+	background-color: white
+
+}
+
+
+
+button#blue {
+
+	display: block;
+
+	text-decoration: none;
+
+	font-size: 18px;
+
+	border: 2px solid gray;
+
+	border-radius: 100px;
+
+	width: 100px;
+
+	height: 100px;
+
+	text-align: center;
+
+	line-height: 100px;
+
+	background-color: white
+
+}
+
+</style>
+
+
+
+</head>
+
+
+
+<body>
+
+	<!-- 6.0 wrapper -->
+
+	<div class="wrapper" id="wrapper-large">
+
+		<div class="container-fluid">
+
+			<div class="row">
+
+				<div class="col-sm-12 text-center">
+
+					<!-- 6.1 SPIRIT BUBBLES CANVAS -->
+
+					<canvas class="spirit-bubbles" id="canvas"></canvas>
+
+					<!-- end SPIRIT BUBBLES CANVAS -->
+
+
+
+					<!-- 6.2 HOME & RETURN BUTTONS -->
+
+
+
+					<!-- end HOME & RETURN BUTTONS -->
+
+
+
+					<!-- 6.3 ERROR CODE -->
+
+					<h1 class="wow flipInY" data-wow-delay="1.5s">LED</h1>
+					<!-- ERROR TEXT, Change error text according to your requirement -->
+					<!-- ROTATING <h2 id="sub-title"></h2>TEXT -->
+					<h2 style="font-family:fantasy;"> Challenge 3 <i class="material-icons">favorite_border</i> Group 1</h2>
+					<!-- END ERROR CODE -->
+					<!-- 6.4 search-form -->
+					<!-- end search-form -->
+					<!-- 6.5 social-icons -->
+					<ul class="social-icons center-block">
+						<li>
+						<button id="green"  onclick="green('green','#21d97a')">   <i class="material-icons" style="font-size:90px;color: #d3f4e8;text-align:center" >lightbulb_outline</i> </button>
+						</li>
+						<li>
+            <button id="red" onclick="red('red','#eb4c5e')"  > <i class="material-icons" style="font-size:90px;color: #f1acd3" >lightbulb_outline</i> </button>
+						</li>
+						<li>
+						<button id="yellow" onclick="yellow('yellow','#f3ee50')">   <i class="material-icons" style="font-size:90px;color: #f4f5c6" >lightbulb_outline</i> </button>
+						</li>
+						<li>
+						<button id="blue" onclick="blue('blue','#0e99e9')">   <i class="material-icons" style="font-size:90px;color: #94f5f8" >lightbulb_outline</i> </button>
+						</li>
+					</ul>
+
+					<!-- end social-icons -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end wrapper -->
+	<!-- 7.0 javascript import -->
+	<!-- jquery -->
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<!-- bootstrap -->
+	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+	<!-- wow -->
+	<script src="assets/js/wow/dist/wow.min.js"></script>
+	<!-- wordsrotator -->
+	<script src="assets/js/wordsrotator/jquery.wordrotator.min.js"></script>
+	<!-- main js -->
+	<script src="assets/js/main.js"></script>
+</body>
+</html>
